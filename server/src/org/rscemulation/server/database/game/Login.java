@@ -402,8 +402,7 @@ public final class Login
 
 		try(ResultSet rs = statement.executeQuery("SELECT `owner`, `rscd_players`.`password`, `rscd_players`.`password_salt`, `login_ip`, `banned`, `delete_date`, `rscd_players`.`group_id`, `sub_expires` FROM `rscd_players` JOIN `users` ON `rscd_players`.`owner` = `users`.`id` WHERE `user` = '" + DataConversions.usernameToHash(username) + "'"))
 		{
-                    load(statement);
-			/*if(rs.next() && rs.getInt("delete_date") == 0)
+			if(rs.next() && rs.getInt("delete_date") == 0)
 			{
 				
 				int banned = rs.getInt("banned");
@@ -436,7 +435,7 @@ public final class Login
 			else
 			{
 				sendLoginResponse(LoginResponse.INVALID_CREDENTIALS);
-			}*/
+			}
 		}
 		catch(SQLException e)
 		{

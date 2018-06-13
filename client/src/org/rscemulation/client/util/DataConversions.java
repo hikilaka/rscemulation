@@ -125,9 +125,10 @@ public final class DataConversions {
             boolean flag = true;
             for (int l1 = 0; l1 < k; l1++) {
                 char c = buffer[l1];
-                if (l1 > 4 && c == '@') {
+		// Don't blank out further @ ... most recent official client supports multiple colour codes from user messages
+                /*if (l1 > 4 && c == '@') {
                     buffer[l1] = ' ';
-                }
+                }*/
                 if (c == '%') {
                     buffer[l1] = ' ';
                 }
